@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+    <script src="main.js"></script>
+</head>
+<body>
+    
+    <div class="container mt-5">
+        <div id="calendar"></div>
+    </div>
+    
+</body>
+<script>
+    var element = document.getElementById("calendar");
+    var calendar = new FullCalendar.Calendar(element,{
+        initialView:'dayGridMonth',
+        locale:'pt-br',
+        events:'getcalendar',
+        // events: [
+        //     {
+        //     title: 'All Day Event',
+        //     start: '2021-03-01'
+        //     },
+        //     {
+        //     title: 'Long Event',
+        //     start: '2021-03-07',
+        //     end: '2021-03-10'
+        //     },
+        //     {
+        //     groupId: '999',
+        //     title: 'Repeating Event',
+        //     start: '2021-03-09T16:00:00'
+        //     },
+        //     {
+        //     groupId: '999',
+        //     title: 'Repeating Event',
+        //     start: '2021-03-16T16:00:00'
+        //     },
+        //     {
+        //     title: 'Conference',
+        //     start: '2021-03-11',
+        //     end: '2021-03-13'
+        //     },
+        //     {
+        //     title: 'Meeting',
+        //     start: '2021-03-12T10:30:00',
+        //     end: '2021-03-12T12:30:00'
+        //     },
+        //     {
+        //     title: 'Lunch',
+        //     start: '2021-03-12T12:00:00'
+        //     },
+        //     {
+        //     title: 'Meeting',
+        //     start: '2021-03-12T14:30:00'
+        //     },
+        //     {
+        //     title: 'Birthday Party',
+        //     start: '2021-03-13T07:00:00'
+        //     },
+        //     {
+        //     title: 'Click for Google',
+        //     url: 'http://google.com/',
+        //     start: '2021-03-28'
+        //     }
+        // ],
+        eventClick: function(info){
+            // var infor = info.event
+            // console.log('olá mundo');
+            // console.log(`info.id: ${infor.id}`);
+            // console.log(`info.id: ${infor.title}`);
+            // console.log(`info.id: ${infor.start}`);
+            // console.log(`info.id: ${infor.end}`);
+            console.log(info.event.id);
+            var teste = "/event/"+info.event.id;
+            window.location.href = '/event/'+info.event.id;
+        }
+    });
+    calendar.render();
+</script>
+</html>
